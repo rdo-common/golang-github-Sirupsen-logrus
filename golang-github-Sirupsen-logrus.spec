@@ -45,7 +45,7 @@
 
 Name:           golang-%{provider}-%{old_project}-%{repo}
 Version:        1.1.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Structured logger for Go
 # Detected licences
 # - Expat License at 'LICENSE'
@@ -78,6 +78,9 @@ Requires:      golang(golang.org/x/crypto/ssh/terminal)
 Provides:      golang(%{import_path}) = %{version}-%{release}
 Provides:      golang(%{import_path}/hooks/syslog) = %{version}-%{release}
 Provides:      golang(%{import_path}/hooks/test) = %{version}-%{release}
+Provides:      golang(%{old_import_path}) = %{version}-%{release}
+Provides:      golang(%{old_import_path}/hooks/syslog) = %{version}-%{release}
+Provides:      golang(%{old_import_path}/hooks/test) = %{version}-%{release}
 
 %description devel
 %{summary}
@@ -216,6 +219,9 @@ export GOPATH=%{buildroot}/%{gopath}:%{gopath}
 %endif
 
 %changelog
+* Sun Nov 25 2018 Robert-André Mauchin <zebob.m@gmail.com> - 1.1.1-2
+- Provide old import path
+
 * Sun Nov 25 2018 Robert-André Mauchin <zebob.m@gmail.com> - 1.1.1-1
 - Release 1.1.1
 
