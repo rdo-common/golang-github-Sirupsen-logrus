@@ -19,7 +19,7 @@
 # Build with debug info rpm
 %global with_debug 0
 # Run tests in check section
-%global with_check 1
+%global with_check 0
 # Generate unit-test rpm
 %global with_unit_test 1
 
@@ -28,6 +28,9 @@
 %else
 %global debug_package   %{nil}
 %endif
+
+# Force build in all arches for RDO
+%global go_arches x86_64 ppc64le aarch64
 
 
 %global provider        github
